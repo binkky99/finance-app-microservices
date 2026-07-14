@@ -1,0 +1,22 @@
+<div class="login-container">
+  <div class="auth-brand">
+    <h1 class="auth-title">Welcome to my Finance app</h1>
+  </div>
+
+  <div class="auth-card">
+    @if (auth.error$ | async; as error) {
+      <p class="auth-error">{{ error.message }}</p>
+    }
+
+    <button pButton rounded
+      class="auth-btn auth-btn--primary"
+      (click)="auth.loginWithRedirect({ authorizationParams: { screen_hint: 'signup' } })">
+      Sign Up
+    </button>
+    <button pButton rounded outlined
+      class="auth-btn auth-btn--ghost"
+      (click)="auth.loginWithRedirect()">
+      Log In
+    </button>
+  </div>
+</div>

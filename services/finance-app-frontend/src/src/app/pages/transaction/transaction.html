@@ -1,0 +1,105 @@
+<p-table
+  [value]="transactions"
+  sortField="date_posted"
+  [sortOrder]="1"
+  removableSort 
+  dataKey="id"
+  editMode="row"
+  [tableStyle]="{ 'min-width': '50rem' }"
+>
+  <ng-template #header>
+    <tr>
+      <th pSortableColumn="bank">
+        <div class="flex items-center gap-2">
+          Bank
+          <p-sort-icon field="name" />
+        </div>
+      </th>
+      <th pSortableColumn="description">
+        <div class="flex items-center gap-2">
+          Description
+          <p-sort-icon field="description" />
+        </div>
+      </th>
+      <th pSortableColumn="amount">
+        <div class="flex items-center gap-2">
+          Amount
+          <p-sort-icon field="amount" />
+        </div>
+      </th>
+      <th pSortableColumn="date_posted">
+        <div class="flex items-center gap-2">
+          Date Posted
+          <p-sort-icon field="date_posted" />
+        </div>
+      </th>
+      <th style="width: 8rem"></th>
+    </tr>
+  </ng-template>
+
+  <ng-template #body let-transaction let-editing="editing" let-ri="rowIndex">
+    <tr [pEditableRow]="transaction">
+      <td>
+        <p-cell-editor>
+          <ng-template #input>
+            <input pInputText type="text" [(ngModel)]="transaction.bank" fluid />
+          </ng-template>
+          <ng-template #output>
+            {{ transaction.bank }}
+          </ng-template>
+        </p-cell-editor>
+      </td>
+
+      <td>
+        <p-cell-editor>
+          <ng-template #input>
+            <input pInputText type="text" [(ngModel)]="transaction.description" fluid />
+          </ng-template>
+          <ng-template #output>
+            {{ transaction.description }}
+          </ng-template>
+        </p-cell-editor>
+      </td>
+
+      <td>
+        <p-cell-editor>
+          <ng-template #input>
+            <p-inputNumber [(ngModel)]="transaction.amount" mode="currency" currency="USD" fluid />
+          </ng-template>
+          <ng-template #output>
+            {{ transaction.amount | currency }}
+          </ng-template>
+        </p-cell-editor>
+      </td>
+
+      <td>
+        <p-cell-editor>
+          <ng-template #input>
+            <input pInputText type="date" [(ngModel)]="transaction.date_posted" fluid />
+          </ng-template>
+          <ng-template #output>
+            {{ transaction.date_posted | date }}
+          </ng-template>
+        </p-cell-editor>
+      </td>
+
+      <td>
+        <div class="flex gap-1">
+            @if (!editing) {
+                <button pButton type="button" pInitEditableRow (click)="onRowEditInit(transaction)" variant="text" severity="secondary" iconOnly>
+                    <svg data-p-icon="pencil" />
+                </button>
+            }
+            @if (editing) {
+                <button pButton type="button" pSaveEditableRow (click)="onRowEditSave(transaction)" variant="text" severity="success" iconOnly>
+                    <svg data-p-icon="check" />
+                </button>
+                <button pButton type="button" pCancelEditableRow (click)="onRowEditCancel(transaction, ri)" variant="text" severity="danger" iconOnly>
+                    <svg data-p-icon="times" />
+                </button>
+            }
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

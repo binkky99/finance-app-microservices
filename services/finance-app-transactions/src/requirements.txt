@@ -1,0 +1,5 @@
+fastapi[standard]==0.139.0
+pydantic_settings==2.14.2
+sqlmodel==0.0.39
+psycopg2-binary==2.9.10
+auth0-fastapi-api>=1.0.0b5

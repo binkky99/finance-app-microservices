@@ -1,0 +1,98 @@
+.nav-strip {
+  width: 500;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 2rem 1.5rem;
+}
+
+.nav-card {
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.nav-card--statement {
+  position: relative;
+  max-width: 300px;
+  padding-top: 2.25rem;
+  height: 100%;
+}
+
+.nav-card--statement::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 14px 14px 0 0;
+}
+
+.nav-email {
+  color: #ebeaeaf1;
+  font-size: 1.10rem;
+  margin: 0;
+}
+
+.nav-json {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #aeb4c4;
+  background: var(--ink-950);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  padding: 0.85rem;
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.nav-card .p-button.nav-btn--ghost.p-button-outlined {
+  background: transparent;
+  border: 1px solid var(--hairline);
+}
+
+.nav-card .p-button.nav-btn--ghost.p-button-outlined:hover {
+  border-color: var(--hover);
+}
+
+.nav-card .p-button:focus-visible {
+  outline: 2px solid var(--hover);
+  outline-offset: 2px;
+}
+
+.nav-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--hairline);
+}
+
+.nav-avatar--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  color: #1a1304;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nav-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0.75rem 0 0.15rem;
+}

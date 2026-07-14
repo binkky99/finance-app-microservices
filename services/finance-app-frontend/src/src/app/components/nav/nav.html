@@ -1,0 +1,23 @@
+ @if ((auth.isAuthenticated$ | async) && (auth.user$ | async); as user) {
+  <aside class="nav-strip">
+    <div class="nav-card nav-card--statement">
+      @if (user.picture && !pictureFailed) {
+        <img class="nav-avatar" [src]="user.picture" [alt]="user.name || user.email" referrerpolicy="no-referrer" (error)="pictureFailed = true" />
+      } @else {
+        <div class="nav-avatar nav-avatar--fallback">{{ (user.name || user.email || '?')[0] | uppercase }}</div>
+      }
+
+      <p class="nav-eyebrow">Signed in as</p>
+      <h2 class="nav-email">{{ user.email }}</h2>
+
+      <p class="nav-eyebrow">Session details</p>
+      <pre class="nav-json">{{ user | json }}</pre>
+
+      <button pButton rounded outlined
+        class="nav-btn nav-btn--ghost"
+        (click)="auth.logout({ logoutParams: { returnTo: window.location.origin } })">
+        Log out
+      </button>
+    </div>
+  </aside> 
+}

@@ -1,0 +1,7 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  --ink-950: #0a0e1a;
+  --ink-900: #121a2c;
+  --hairline: rgba(233, 231, 222, 0.12);
+  --hover: rgba(233, 231, 222, 0.468);
+}
